@@ -1,0 +1,139 @@
+=== COLETA DEPOIS (Zabbix instalado e HTTPS no ar) ===
+Obs: swap de 2 GB existe nesta coleta (criado depois da coleta ANTES).
+2026-10-29 17:07:17 UTC
+ip-10-0-4-20
+up 2 hours, 25 minutes
+
+--- SO ---
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+7.0.0-1014-aws
+
+--- CPU ---
+2
+Model name:                              Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+
+--- RAM (MB) ---
+               total        used        free      shared  buff/cache   available
+Mem:            3831        3000         175          27         954         830
+Swap:           2047         935        1112
+
+--- SWAP ---
+NAME      TYPE SIZE   USED PRIO
+/swapfile file   2G 935.6M   -1
+swappiness=10
+
+--- DISCO ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       116G   22G   94G  19% /
+
+--- LOAD ---
+ 17:07:17 up  2:25,  2 users,  load average: 0.08, 0.12, 0.22
+
+--- TOP 10 MEMORIA (%CPU do ps = media desde o inicio do processo) ---
+USER               PID %CPU %MEM   RSS COMMAND
+wazuh-indexer      683  2.7 32.5 1276612 java
+mysql            19096  1.7 12.6 496608 mysqld
+root              1518 20.9  6.2 244800 wazuh-modulesd
+wazuh-dashboa+   21947  1.5  5.2 205528 node
+wazuh             1331  0.3  2.3 93928 python3
+wazuh             1335  0.1  1.8 74428 python3
+wazuh             1332  0.0  1.8 71868 python3
+www-data         20631  0.0  0.9 37644 php-fpm8.5
+www-data         20634  0.0  0.9 36632 php-fpm8.5
+www-data         20633  0.0  0.9 36572 php-fpm8.5
+
+--- TOP CPU (instantaneo, 2a amostra) ---
+top - 17:07:20 up  2:25,  2 users,  load average: 0.08, 0.12, 0.22
+Tasks: 204 total,   1 running, 203 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.3 us,  0.6 sy,  0.0 ni, 97.7 id,  0.2 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem :   3831.4 total,    180.6 free,   2995.1 used,    955.5 buff/cache     
+MiB Swap:   2048.0 total,   1112.4 free,    935.6 used.    836.3 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  19096 mysql     20   0 1072348 496608  36348 S   1.7  12.7   0:57.10 mysqld
+    683 wazuh-i+  20   0 3944516   1.2g  18732 S   0.7  32.5   4:00.28 java
+   1331 wazuh     20   0  813340  93928  14608 S   0.3   2.4   0:29.10 python3
+  15079 Debian-+  20   0   25964  11592   8616 S   0.3   0.3   0:00.77 snmpd
+  20973 zabbix    20   0  119968  18032  13608 S   0.3   0.5   0:02.18 zabbix_+
+      1 root      20   0   25980  15828  10848 S   0.0   0.4   0:07.11 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+
+--- PORTAS ---
+State Recv-Q Send-Q Local Address:Port Peer
+LISTEN 0 511 127.0.0.1:8080 0.0.0.0:* users:(("nginx",pid=22008,fd=9),("nginx",pid=22007,fd=9),("nginx",pid=22006,fd=9))
+LISTEN 0 128 0.0.0.0:1514 0.0.0.0:* users:(("wazuh-remoted",pid=1460,fd=4))
+LISTEN 0 128 0.0.0.0:1515 0.0.0.0:* users:(("wazuh-authd",pid=1385,fd=3))
+LISTEN 0 2048 0.0.0.0:55000 0.0.0.0:* users:(("python3",pid=1331,fd=41))
+LISTEN 0 151 127.0.0.1:3306 0.0.0.0:* users:(("mysqld",pid=19096,fd=22))
+LISTEN 0 4096 127.0.0.54:53 0.0.0.0:* users:(("systemd-resolve",pid=186,fd=19))
+LISTEN 0 4096 0.0.0.0:10051 0.0.0.0:* users:(("zabbix_server",pid=21079,fd=10),("zabbix_server",pid=21077,fd=10),("zabbix_server",pid=21076,fd=10),("zabbix_server",pid=21071,fd=10),("zabbix_server",pid=21070,fd=10),("zabbix_server",pid=21068,fd=10),("zabbix_server",pid=21062,fd=10),("zabbix_server",pid=21061,fd=10),("zabbix_server",pid=21055,fd=10),("zabbix_server",pid=21054,fd=10),("zabbix_server",pid=21053,fd=10),("zabbix_server",pid=21052,fd=10),("zabbix_server",pid=21050,fd=10),("zabbix_server",pid=21049,fd=10),("zabbix_server",pid=21044,fd=10),("zabbix_server",pid=21042,fd=10),("zabbix_server",pid=21041,fd=10),("zabbix_server",pid=21040,fd=10),("zabbix_server",pid=21039,fd=10),("zabbix_server",pid=21038,fd=10),("zabbix_server",pid=21037,fd=10),("zabbix_server",pid=21036,fd=10),("zabbix_server",pid=21035,fd=10),("zabbix_server",pid=21032,fd=10),("zabbix_server",pid=21030,fd=10),("zabbix_server",pid=21029,fd=10),("zabbix_server",pid=21028,fd=10),("zabbix_server",pid=21026,fd=10),("zabbix_server",pid=21007,fd=10),("zabbix_server",pid=21006,fd=10),("zabbix_server",pid=21005,fd=10),("zabbix_server",pid=21001,fd=10),("zabbix_server",pid=21000,fd=10),("zabbix_server",pid=20997,fd=10),("zabbix_server",pid=20996,fd=10),("zabbix_server",pid=20995,fd=10),("zabbix_server",pid=20994,fd=10),("zabbix_server",pid=20992,fd=10),("zabbix_server",pid=20989,fd=10),("zabbix_server",pid=20988,fd=10),("zabbix_server",pid=20987,fd=10),("zabbix_server",pid=20986,fd=10),("zabbix_server",pid=20985,fd=10),("zabbix_server",pid=20984,fd=10),("zabbix_server",pid=20983,fd=10),("zabbix_server",pid=20982,fd=10),("zabbix_server",pid=20981,fd=10),("zabbix_server",pid=20979,fd=10),("zabbix_server",pid=20973,fd=10),("zabbix_server",pid=20972,fd=10),("zabbix_server",pid=20970,fd=10))
+LISTEN 0 511 127.0.0.1:5601 0.0.0.0:* users:(("node",pid=21947,fd=19))
+LISTEN 0 511 0.0.0.0:80 0.0.0.0:* users:(("nginx",pid=22008,fd=5),("nginx",pid=22007,fd=5),("nginx",pid=22006,fd=5))
+LISTEN 0 4096 0.0.0.0:22 0.0.0.0:* users:(("sshd",pid=731,fd=3),("systemd",pid=1,fd=174))
+LISTEN 0 511 0.0.0.0:443 0.0.0.0:* users:(("nginx",pid=22008,fd=7),("nginx",pid=22007,fd=7),("nginx",pid=22006,fd=7))
+LISTEN 0 4096 127.0.0.53%lo:53 0.0.0.0:* users:(("systemd-resolve",pid=186,fd=17))
+LISTEN 0 70 127.0.0.1:33060 0.0.0.0:* users:(("mysqld",pid=19096,fd=20))
+LISTEN 0 4096 [::ffff:127.0.0.1]:9300 *:* users:(("java",pid=683,fd=603))
+LISTEN 0 2048 [::]:55000 [::]:* users:(("python3",pid=1331,fd=43))
+LISTEN 0 4096 *:10050 *:* users:(("zabbix_agent2",pid=8551,fd=8))
+LISTEN 0 4096 [::]:10051 [::]:* users:(("zabbix_server",pid=21079,fd=11),("zabbix_server",pid=21077,fd=11),("zabbix_server",pid=21076,fd=11),("zabbix_server",pid=21071,fd=11),("zabbix_server",pid=21070,fd=11),("zabbix_server",pid=21068,fd=11),("zabbix_server",pid=21062,fd=11),("zabbix_server",pid=21061,fd=11),("zabbix_server",pid=21055,fd=11),("zabbix_server",pid=21054,fd=11),("zabbix_server",pid=21053,fd=11),("zabbix_server",pid=21052,fd=11),("zabbix_server",pid=21050,fd=11),("zabbix_server",pid=21049,fd=11),("zabbix_server",pid=21044,fd=11),("zabbix_server",pid=21042,fd=11),("zabbix_server",pid=21041,fd=11),("zabbix_server",pid=21040,fd=11),("zabbix_server",pid=21039,fd=11),("zabbix_server",pid=21038,fd=11),("zabbix_server",pid=21037,fd=11),("zabbix_server",pid=21036,fd=11),("zabbix_server",pid=21035,fd=11),("zabbix_server",pid=21032,fd=11),("zabbix_server",pid=21030,fd=11),("zabbix_server",pid=21029,fd=11),("zabbix_server",pid=21028,fd=11),("zabbix_server",pid=21026,fd=11),("zabbix_server",pid=21007,fd=11),("zabbix_server",pid=21006,fd=11),("zabbix_server",pid=21005,fd=11),("zabbix_server",pid=21001,fd=11),("zabbix_server",pid=21000,fd=11),("zabbix_server",pid=20997,fd=11),("zabbix_server",pid=20996,fd=11),("zabbix_server",pid=20995,fd=11),("zabbix_server",pid=20994,fd=11),("zabbix_server",pid=20992,fd=11),("zabbix_server",pid=20989,fd=11),("zabbix_server",pid=20988,fd=11),("zabbix_server",pid=20987,fd=11),("zabbix_server",pid=20986,fd=11),("zabbix_server",pid=20985,fd=11),("zabbix_server",pid=20984,fd=11),("zabbix_server",pid=20983,fd=11),("zabbix_server",pid=20982,fd=11),("zabbix_server",pid=20981,fd=11),("zabbix_server",pid=20979,fd=11),("zabbix_server",pid=20973,fd=11),("zabbix_server",pid=20972,fd=11),("zabbix_server",pid=20970,fd=11))
+LISTEN 0 511 [::]:80 [::]:* users:(("nginx",pid=22008,fd=6),("nginx",pid=22007,fd=6),("nginx",pid=22006,fd=6))
+LISTEN 0 4096 [::]:22 [::]:* users:(("sshd",pid=731,fd=4),("systemd",pid=1,fd=175))
+LISTEN 0 511 [::]:443 [::]:* users:(("nginx",pid=22008,fd=8),("nginx",pid=22007,fd=8),("nginx",pid=22006,fd=8))
+LISTEN 0 4096 [::ffff:127.0.0.1]:9200 *:* users:(("java",pid=683,fd=605))
+
+--- SERVICOS ---
+wazuh-manager: active
+wazuh-indexer: active
+wazuh-dashboard: active
+filebeat: active
+zabbix-server: active
+zabbix-agent2: active
+mysql: active
+nginx: active
+php8.5-fpm: active
+
+--- VERSOES ---
+filebeat 7.10.2
+wazuh-dashboard 4.9.2-1
+wazuh-indexer 4.9.2-1
+wazuh-manager 4.9.2-1
+zabbix-agent2 1:7.0.32-2+ubuntu26.04
+zabbix-frontend-php 1:7.0.32-2+ubuntu26.04
+zabbix-server-mysql 1:7.0.32-2+ubuntu26.04
+mysql  Ver 8.4.11-0ubuntu0.26.04.1 for Linux on x86_64 ((Ubuntu))
+nginx version: nginx/1.28.3 (Ubuntu)
+
+--- AGENTES WAZUH ---
+   ID: 000, Name: ip-10-0-4-20 (server), IP: 127.0.0.1, Active/Local
+   ID: 001, Name: web-server, IP: any, Active
+   ID: 002, Name: db-server, IP: any, Active
+
+--- MEMORIA POR SERVICO (RSS em MB) ---
+mysqld: 485 MB
+zabbix_server: 514 MB
+php-fpm8.5: 305 MB
+nginx: 27 MB
+zabbix_agent2: 22 MB
+java: 1247 MB
+node: 201 MB
+wazuh-modulesd: 239 MB
+
+--- vmstat 5s x 12 (ignore a 1a linha) ---
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 0  0 958028 188516  19760 960552   68   91  4332  3157 1774    8 13  2 76 10  1  0
+ 0  0 958028 188528  19936 960652   29    0    62   183 1518 1493  1  1 98  1  0  0
+ 0  0 957964 188148  19972 963308   39    0   303   180 1643 1458  8  1 90  1  0  0
+ 0  0 957948 188148  19972 963312    2    0     2   236 1466 1317  1  1 98  0  0  0
+ 0  0 957948 188148  19980 963320    0    0     0    84 1314 1257  1  1 98  0  0  0
+ 0  0 957948 188148  19980 963340    0    0     4   222 1366 1236  1  1 98  0  0  0
+ 0  0 957948 188148  19988 963348    0    0     1   166 1430 1331  1  1 98  0  0  0
+ 0  0 957948 188148  19992 963348    0    0     1   114 1326 1262  1  1 98  0  0  0
+ 0  0 957948 188148  19992 963364    0    0     0   346 1244 1219  1  1 97  0  1  0
+ 0  0 957948 188148  20004 963368    0    0     0   128 1403 1400  1  1 97  0  1  0
+ 0  0 957948 188148  20004 963376    0    0     0    14 1329 1255  1  1 98  0  0  0
+ 0  0 957948 188148  20004 963376    2    0     2   414 1202 1113  1  1 98  0  0  0
+
+--- FIM: 2026-10-29 17:08:15 UTC ---

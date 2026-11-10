@@ -1,0 +1,3 @@
+# /etc/zabbix/zabbix_server.conf (apenas esta linha foi alterada; o valor NAO esta neste pacote)
+DBPassword=<senha do usuario zabbix do MySQL; guardada na instancia em ~/zabbix_db_pass.txt (modo 600)>
+# Demais campos DBName=zabbix e DBUser=zabbix ja eram o padrao do pacote.

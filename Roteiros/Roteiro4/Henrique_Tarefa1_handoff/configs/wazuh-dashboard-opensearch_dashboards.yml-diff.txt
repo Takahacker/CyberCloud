@@ -1,0 +1,7 @@
+# /etc/wazuh-dashboard/opensearch_dashboards.yml (somente linhas 1 e 3 alteradas)
+antes:  server.host: 0.0.0.0
+depois: server.host: 127.0.0.1
+antes:  server.port: 443
+depois: server.port: 5601
+# TLS interno do dashboard (server.ssl.*) foi mantido ligado; o nginx fala HTTPS com ele em loopback.
+# Backup do original na instancia: ~/evidencias/opensearch_dashboards.yml.bak

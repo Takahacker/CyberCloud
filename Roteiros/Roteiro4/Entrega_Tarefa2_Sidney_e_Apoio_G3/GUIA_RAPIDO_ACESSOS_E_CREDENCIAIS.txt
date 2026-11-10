@@ -1,0 +1,87 @@
+================================================================================
+GUIA RÁPIDO DE ACESSOS, CREDENCIAIS E COMANDOS - GRUPO G3 (ROTEIRO 4)
+================================================================================
+
+1. PLATAFORMAS WEB E CREDENCIAIS
+--------------------------------------------------------------------------------
+* Zabbix Web:
+  - URL: https://zabbix.maisplace.net.br
+  - Usuário: Admin (com 'A' maiúsculo)
+  - Senha:   zabbix
+
+* Apache Guacamole (Jump Server):
+  - URL: https://guacamole.maisplace.net.br
+  - Conexões configuradas: SSH local (ip-10-0-4-101)
+
+* Wazuh Dashboard:
+  - URL: https://monitoramento.maisplace.net.br
+
+
+2. SERVIDOR DE BANCO DE DADOS (MySQL) - db-01
+--------------------------------------------------------------------------------
+* Instância AWS: g3-db-server-instance (t2.micro)
+* IP Privado:    10.0.136.239 (sem IP público, acesso via Jump Server)
+* Porta Agente:  10050/tcp (Zabbix Agent 2 ativo)
+* MySQL Port:    3306/tcp (bind em 10.0.136.239)
+* Usuário Monitoramento MySQL:
+  - Usuário: zbx_monitor
+  - Senha:   ZbxMonitor@G3_2026
+  - DSN no Zabbix: tcp://10.0.136.239:3306
+* Chave SSH: g3-key-db.pem
+* Como conectar a partir do Jump Server:
+  ssh -i g3-key-db.pem ubuntu@10.0.136.239
+
+
+3. SERVIDOR WEB (Apache / WordPress) - web-01
+--------------------------------------------------------------------------------
+* Instância AWS: g3-webserver (t2.micro)
+* IP Privado:    10.0.11.45 (acesso SSH via Jump Server)
+* Serviços:      Apache 2, PHP, WordPress
+* Chave SSH:     g3-web-server-key.pem
+* Como conectar a partir do Jump Server:
+  ssh -i g3-web-server-key.pem ubuntu@10.0.11.45
+
+
+4. JUMP SERVER GUACAMOLE - jump-01
+--------------------------------------------------------------------------------
+* Instância AWS: guacamole (t2.micro)
+* IP Privado:    10.0.4.101
+* Porta Agente:  10050/tcp (Zabbix Agent 2 com plugin Docker ativo)
+* Serviços:      Docker com containers (guacamole, guacd, postgres)
+
+
+5. SERVIDOR ZABBIX / WAZUH - Zabbix server
+--------------------------------------------------------------------------------
+* Instância AWS: g3-wazuh-server (t3.medium)
+* IP Privado:    10.0.4.20
+* IP Público:    174.129.199.16 (Elastic IP)
+* Chave SSH:     g3-wazuh-key.pem
+* Como conectar a partir do Jump Server:
+  ssh -i g3-wazuh-key.pem ubuntu@10.0.4.20
+* Como forçar recarga imediata do cache do Zabbix (sem esperar 10 min):
+  sudo zabbix_server -R config_cache_reload
+
+
+6. COMANDOS ÚTEIS PARA O GUSTAVO (TESTES DA TAREFA 3)
+--------------------------------------------------------------------------------
+* Teste 1 - Simular Parada e Recuperação de Serviço:
+  Opção A (MySQL no Banco 10.0.136.239):
+    ssh -i g3-key-db.pem ubuntu@10.0.136.239
+    sudo systemctl stop mysql
+    (Aguardar alerta PROBLEM no Zabbix e e-mail)
+    sudo systemctl start mysql
+    (Aguardar volta para RESOLVED)
+
+  Opção B (Apache no Web Server 10.0.11.45):
+    ssh -i g3-web-server-key.pem ubuntu@10.0.11.45
+    sudo systemctl stop apache2
+    (Aguardar alerta PROBLEM no Zabbix e e-mail)
+    sudo systemctl start apache2
+    (Aguardar volta para RESOLVED)
+
+* Teste 2 - Simular Carga de CPU com 'stress':
+  (No banco 10.0.136.239 ou web 10.0.11.45)
+  - Instalar: sudo apt update && sudo apt install -y stress
+  - Rodar:    stress --cpu 2 --timeout 240s
+  - (Registrar disparo de CPU > 80% no Zabbix e retorno ao normal)
+================================================================================

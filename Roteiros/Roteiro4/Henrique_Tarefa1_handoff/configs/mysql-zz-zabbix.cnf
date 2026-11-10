@@ -1,0 +1,5 @@
+# /etc/mysql/conf.d/zz-zabbix.cnf
+[mysqld]
+innodb_buffer_pool_size = 256M
+performance_schema = OFF
+skip-log-bin
